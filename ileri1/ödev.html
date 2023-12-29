@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezegen Animasyonları</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: url('images/uzayy.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            /* Güneşin bağlı olduğu container'ın konumu belirli olmalı */
+        }
+
+        #sun {
+            width: 46vw;
+            height: 46vw;
+            background: url('images/Gunes.jpg') no-repeat center center fixed;
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) translateX(-50%);
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+            z-index: -1;
+            /* Güneşin z-index değerini gezegenlerin altında olacak şekilde ayarlar */
+        }
+
+        .solar-system {
+            display: flex;
+            align-items: flex-end;
+            /* Gezegen isimlerini altta tutmak için */
+        }
+
+        .planet-container {
+            position: relative;
+            text-align: center;
+            animation: rotate infinite linear;
+            margin-left: 175px;
+            z-index: 1;
+            /* Gezegenler arasında boşluk bırakmak için */
+        }
+
+        .planet {
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .planet-name {
+            position: absolute;
+            top: 100%;
+            /* Gezegenin altında olacak şekilde ayarla */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            width: 1px;
+            height: 1px;
+            opacity: 0.8;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #mercury {
+            animation-duration: 3s;
+        }
+
+        #venus {
+            animation-duration: 5s;
+        }
+
+        #earth {
+            animation-duration: 7s;
+        }
+
+        #mars {
+            animation-duration: 9s;
+        }
+
+        #jupiter {
+            animation-duration: 12s;
+        }
+
+        #saturn {
+            animation-duration: 15s;
+        }
+
+        #uranus {
+            animation-duration: 18s;
+        }
+
+        #neptune {
+            animation-duration: 21s;
+        }
+
+        .planet-container:not(:first-child) {
+            margin-left: 50px;
+            /* Gezegenler arasındaki boşluğu artırmak için değeri artırın */
+        }
+
+        .planet {
+            width: 45px;
+            height: 45px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #mercury .planet {
+            width: 20px;
+            height: 20px;
+            background-image: url('images/merkur-renkli-8989123.jpg');
+        }
+
+        #venus .planet {
+            width: 40px;
+            height: 40px;
+            background-image: url('images/venus.jpg');
+        }
+
+        #earth .planet {
+            width: 45px;
+            height: 45px;
+            background-image: url('images/indir.jpg');
+        }
+
+        #mars .planet {
+            width: 30px;
+            height: 30px;  
+            background-image: url('images/mars.jpg');
+        }
+
+        #jupiter .planet {
+            width: 100px;
+            height: 100px;
+            background-image: url('images/jupiter.jpg');
+        }
+
+        #saturn .planet {
+            width: 90px;
+            height: 90px;
+            background-image: url('images/saturrn.jpg');
+        }
+
+        #uranus .planet {
+            width: 70px;
+            height: 70px;
+            background-image: url('images/Uranus.jpg');
+        }
+
+        #neptune .planet {
+            width: 65px;
+            height: 65px;
+            background-image: url('images/neptun.jpg');
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            /* Küçük ekran stilleri buraya eklenecek */
+            #sun {
+                width: 70vw;
+                height: 70vw;
+            }
+
+            .solar-system {
+                flex-direction: row;
+                /* Gezegenleri dikey hizada göster */
+                align-items: flex-end;
+                /* Gezegenleri ortala */
+                justify-content: center;
+                /* Gezegenleri ortala */
+            }
+
+            .planet-container {
+                margin: 40px;
+                /* Gezegenler arasındaki boşluğu artırın */
+            }
+
+            .planet-name {
+                top: 120%;
+                /* Gezegen adını biraz daha aşağıya al */
+            }
+
+            .planet-container:not(:first-child) {
+                margin-left: 90px;
+                /* Gezegenler arasındaki boşluğu artırmak için değeri artırın */
+            }
+
+            .planet {
+                width: 30px;
+                height: 30px;
+            }
+
+
+            #mercury .planet {
+                width: 15px;
+                height: 15px;
+            }
+
+            #venus .planet {
+                width: 30px;
+                height: 30px;
+            }
+
+            #earth .planet {
+                width: 30px;
+                height: 30px;
+            }
+
+            #mars .planet {
+                width: 20px;
+                height: 20px;
+            }
+
+            #jupiter .planet {
+                width: 50px;
+                height: 50px;
+            }
+
+            #saturn .planet {
+                width: 45px;
+                height: 45px;
+            }
+
+            #uranus .planet {
+                width: 35px;
+                height: 35px;
+            }
+
+            #neptune .planet {
+                width: 30px;
+                height: 30px;
+            }
+
+            .star {
+                width: 1px;
+                height: 1px;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sun"></div>
+
+    <div class="solar-system">
+        <div class="planet-container" id="mercury">
+            <div class="planet"></div>
+            <div class="planet-name">Merkür</div>
+        </div>
+        <div class="planet-container" id="venus">
+            <div class="planet"></div>
+            <div class="planet-name">Venüs</div>
+        </div>
+        <div class="planet-container" id="earth">
+            <div class="planet"></div>
+            <div class="planet-name">Dünya</div>
+        </div>
+        <div class="planet-container" id="mars">
+            <div class="planet"></div>
+            <div class="planet-name">Mars</div>
+        </div>
+        <div class="planet-container" id="jupiter">
+            <div class="planet"></div>
+            <div class="planet-name">Jüpiter</div>
+        </div>
+        <div class="planet-container" id="saturn">
+            <div class="planet"></div>
+            <div class="planet-name">Satürn</div>
+        </div>
+        <div class="planet-container" id="uranus">
+            <div class="planet"></div>
+            <div class="planet-name">Uranüs</div>
+        </div>
+        <div class="planet-container" id="neptune">
+            <div class="planet"></div>
+            <div class="planet-name">Neptün</div>
+        </div>
+    </div>
+
+    <script>
+        function handleResize() {
+            // Ekran boyutunu kontrol ederek gerekirse ek işlemler yapabilirsiniz.
+            // Bu örnekte herhangi bir JavaScript işlemi eklenmedi.
+        }
+
+        // Event listener ile ekran boyutu değişikliklerini dinle
+        window.addEventListener('resize', handleResize);
+
+        // Sayfa yüklendiğinde de çağrılabilir
+        window.addEventListener('load', handleResize);
+
+
+
+
+        function showPlanetInfo(planetName) {
+            const planetInfo = {
+                'Merkür': {
+                    description: "MERKÜR:",
+                    facts: [
+                        "Merkür, Güneş Sistemi'ndeki en küçük gezegendir.",
+                        "Merkür, Roma mitolojisindeki ticaret tanrısı Merkür'den adını almıştır.",
+                        "Yüzeyindeki büyük kraterlerle bilinir.",
+                        "Güneş'e en yakın gezegendir.",
+                        "Merkür'ün atmosferi neredeyse yoktur.",
+                        "Günün bir yüzü boyunca çok yüksek sıcaklıklara ve geceleri çok düşük sıcaklıklara sahiptir."
+                    ]
+                },
+                'Venüs': {
+                    description: "VENÜS:",
+                    facts: [
+                        "Venüs, Güneş Sistemi'ndeki en sıcak gezegendir.",
+                        "Venüs, 'Sabah Yıldızı' veya 'Akşam Yıldızı' olarak da bilinir.",
+                        "Atmosferi kalın bir bulut tabakası ile kaplıdır.",
+                        "Dünya'ya benzer büyüklükte olmasına rağmen yüzey sıcaklığı çok yüksektir.",
+                        "Venüs, ters yönde dönen yavaş rotasyonuyla dikkat çeker.",
+                        "Volkanik aktiviteye sahip bir gezegendir."
+                    ]
+                },
+                'Dünya': {
+                    description: "DÜNYA:",
+                    facts: [
+                        "Dünya, yaşam barındıran tek gezegenimizdir.",
+                        "Dünya, mavi renkli atmosferi ve suyuyla dikkat çeker.",
+                        "Yüzeyinde çeşitli iklim bölgeleri bulunur.",
+                        "Canlıların ev sahibi olan tek gezegendir.",
+                        "Yüzeyinde karalar, okyanuslar ve göller bulunur.",
+                        "Ay, Dünya'nın tek doğal uydusudur."
+                    ]
+                },
+                'Mars': {
+                    description: "MARS:",
+                    facts: [
+                        "Mars, kızıl renkli bir gezegendir ve yüzeyinde su izleri bulunmuştur.",
+                        "Mars, 'Kızıl Gezegen' olarak da bilinir.",
+                        "Yüzeyindeki vadiler ve kutuplardaki buz örtüsü ilgi çekici özellikleridir.",
+                        "Mars, dünya gününde biraz daha uzun bir gün süresine sahiptir.",
+                        "İlk insanlı Mars görevi için planlar yapılmaktadır.",
+                        "Mars yüzeyinde rüzgarın etkisiyle oluşan toz fırtınaları görülür."
+                    ]
+                },
+                'Jüpiter': {
+                    description: "JUPİTER:",
+                    facts: [
+                        "Jüpiter, Güneş Sistemi'ndeki en büyük gezegendir.",
+                        "Jüpiter, büyük kırmızı leke gibi belirgin özelliklere sahip dev bir gaz gezegenidir.",
+                        "Manyetik alanı çok güçlüdür.",
+                        "Jüpiter'in 79 adet uydusu bulunmaktadır.",
+                        "Jüpiter'in halkaları zayıf ve görünmezdir.",
+                        "Jüpiter, Güneş Sistemi'ndeki diğer gezegenlere kıyasla en hızlı dönen gezegendir."
+                    ]
+                },
+                'Satürn': {
+                    description: "SATÜRN:",
+                    facts: [
+                        "Satürn, halkalarıyla bilinen güzel bir gezegendir.",
+                        "Satürn'ün halkaları, buz ve kaya parçacıklarından oluşur.",
+                        "Halkalar, teleskoplarla rahatlıkla gözlemlenebilir.",
+                        "Satürn'ün büyüklüğü, ortalama bir gezegenin yaklaşık 9 katı kadardır.",
+                        "Satürn'ün yoğunluğu, suyun yoğunluğundan daha düşüktür.",
+                        "Satürn, adını Roma mitolojisinin tarım tanrısı olan Satürn'den almıştır."
+                    ]
+                },
+                'Uranüs': {
+                    description: "URANÜS:",
+                    facts: [
+                        "Uranüs, yan yatmış bir rotasyona sahip bir gezegendir.",
+                        "Uranüs, yan yatmış bir eksende dönen tek gezegendir.",
+                        "Uranüs'ün adı, Yunan mitolojisinin gökyüzü tanrısı olan Ouranos'tan gelmektedir.",
+                        "Uranüs'ün yüzeyinde su ve amonyak bulunur.",
+                        "Uranüs'ün atmosferinde metan gazı bulunur ve bu gaz, gezegenin mavisine renk verir.",
+                        "Uranüs, teleskopla gözlemlendiğinde küçük ve soluk bir disk olarak görülür."
+                    ]
+                },
+                'Neptün': {
+                    description: "NEPTÜN:",
+                    facts: [
+                        "Neptün, mavi renkli bir gaz devi gezegendir.",
+                        "Neptün, atmosferindeki hızlı rüzgarlar ve büyük koyu lekelerle bilinen bir gaz devi gezegendir.",
+                        "Mavi rengi, atmosferindeki metan gazından kaynaklanır.",
+                        "Neptün, Güneş Sistemi'ndeki en soğuk gezegendir.",
+                        "Neptün'ün beş halkası bulunur.",
+                        "Neptün, 1846'da keşfedilen son gezegendir."
+                    ]
+                }
+            };
+
+            const info = planetInfo[planetName];
+            if (info) {
+                let message = `${info.description}\n\n`;
+                for (let i = 0; i < info.facts.length; i++) {
+                    message += `${i + 1}. ${info.facts[i]}\n`;
+                }
+                alert(message);
+            } else {
+                alert('Bilgi bulunamadı.');
+            }
+        }
+
+
+        // Tıklama olaylarını ekleme
+        document.getElementById('mercury').addEventListener('click', function () { showPlanetInfo('Merkür'); });
+        document.getElementById('venus').addEventListener('click', function () { showPlanetInfo('Venüs'); });
+        document.getElementById('earth').addEventListener('click', function () { showPlanetInfo('Dünya'); });
+        document.getElementById('mars').addEventListener('click', function () { showPlanetInfo('Mars'); });
+        document.getElementById('jupiter').addEventListener('click', function () { showPlanetInfo('Jüpiter'); });
+        document.getElementById('saturn').addEventListener('click', function () { showPlanetInfo('Satürn'); });
+        document.getElementById('uranus').addEventListener('click', function () { showPlanetInfo('Uranüs'); });
+        document.getElementById('neptune').addEventListener('click', function () { showPlanetInfo('Neptün'); });
+
+        // Yıldızları ekleme
+        const starContainer = document.body;
+        for (let i = 0; i < 500; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            starContainer.appendChild(star);
+        }
+    </script>
+</body>
+
+</html>
